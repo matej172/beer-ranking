@@ -8,5 +8,6 @@
     </head>
     <body>
 	<h1>Beer counter</h1>
+	<p>Test text</p>
     </body>
 </html>
