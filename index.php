@@ -17,6 +17,9 @@
 
     // Connexion et sélection de la base
     ?>
+    <p>
+	Toto je paragraf.
+    </p>
     </div>
 </body>
 </html>
