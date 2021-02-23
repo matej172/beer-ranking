@@ -1,7 +1,7 @@
 <?php
 
 
-class Beer {
+class Beer implements \JsonSerializable {
 
     private int $id; 
     private string $title;
@@ -13,6 +13,11 @@ class Beer {
 
     public function getRating(): float {
 	return $this->rating;
+    }
+
+    public function jsonSerialize()
+    {
+    	return get_object_vars($this);
     }
 
 }
