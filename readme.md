@@ -6,7 +6,7 @@ BeerRating is a php/javascript web application representing OOP principals and M
 
 Import `myDb.sql` into your mysql database.
 
-In `api.php` change ulrs to your domain name.
+In `js/script.js` change ulrs to your domain name.
 
 In `helpers/Database.php` set host, username and password.
 
