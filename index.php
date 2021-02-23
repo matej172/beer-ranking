@@ -1,6 +1,14 @@
+<?php
+require_once "models/Beer.php";
+require_once "helpers/Database.php";
+
+$db = new Database();
+$conn = $db->getConnection();
+
+?>
 <html>
  <head>
-  <title>Hello...</title>
+  <title>Beer rating</title>
 
   <meta charset="utf-8"> 
 
@@ -10,16 +18,28 @@
 
 </head>
 <body>
-    <div class="container">
-    <?php echo "<h1>Hi! I'm happy</h1>"; ?>
+<?php
 
-    <?php
+?>
+    <section>
+	<h1>Najlepšie pivá</h1>
+<?php
 
-    // Connexion et sélection de la base
-    ?>
-    <p>
-	Toto je paragraf.
-    </p>
-    </div>
+$stmt = $conn->query( "select title, IFNULL(avg(Rating.value), 0)  as rating from Beer left join Rating on Beer.id = Rating.beer_id group by Beer.id" );
+$stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Beer");
+$result = $stmt->fetchAll();
+?>
+	<ul>
+	    <?php
+		foreach($result as $beer){
+    	    ?>
+		
+	    <li><?php echo "{$beer->getTitle()}: {$beer->getRating()}" ; ?></li>
+
+	    <?php	    
+		}
+	    ?>
+	</ul>
+    </section>
 </body>
 </html>
