@@ -1,7 +1,7 @@
 function addBeer(title) {
   (async () => {
     const rawResponse = await fetch(
-      "http://localhost:8001/api.php?entity=beer",
+      "./api.php?entity=beer",
       {
         method: "POST",
         headers: {
@@ -13,7 +13,7 @@ function addBeer(title) {
     );
     const content = await rawResponse.json();
 
-    fetch("http://localhost:8001/api.php")
+    fetch("./api.php")
       .then((res) => res.json())
       .then((out) => {
         console.log(out);

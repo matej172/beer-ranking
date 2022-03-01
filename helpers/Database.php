@@ -1,9 +1,9 @@
 <?php 
     class Database {
-        private $host = "beer_db_1"; //change to localhost
+        private $host = "localhost"; //change to localhost
         private $database_name = "myDb";
-        private $username = "user"; //change to your mysql username
-        private $password = "test"; //change to your mysql password
+        private $username = "rabek"; //change to your mysql username
+        private $password = "secret"; //change to your mysql password
 
         public $conn;
 
